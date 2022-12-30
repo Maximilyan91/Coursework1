@@ -1,37 +1,50 @@
 public class Coursework {
 
-    public static void main(String[] args) {
+ /* Создать внутри класса с методом main поле типа Employee[10],
+ * которое будет выполнять роль «хранилища» для записей о сотрудниках.
+ */
 
-    /* Создать внутри класса с методом main поле типа Employee[10],
-     * которое будет выполнять роль «хранилища» для записей о сотрудниках.
-     */
-
-        Employee[] empl = new Employee[10];
-        empl[0] = new Employee("Теребонькин Иван Николаевич", 1, 1000f);
-        empl[1] = new Employee("Лупкин Андрей Андреевич ", 2, 1500f);
-        empl[2] = new Employee("Пупкин Станислав Викторович", 3, 1200f);
-        empl[3] = new Employee("Сладенький Егор Владимирович", 4, 1800f);
-        empl[4] = new Employee("Ананьев Сосик Гарникович", 5, 2100f);
-        empl[5] = new Employee("Забейворота Павел Афанасьевич", 1, 1600f);
-        empl[6] = new Employee("Кривоконь Илья Васильевич", 2, 2300f);
-        empl[7] = new Employee("Фриман Гордон Валерьевич", 5, 2000f);
-        empl[8] = new Employee("Букин Геннадий Зенденович", 4, 1800f);
-        empl[9] = new Employee("Кондольский Пельмень Марсельевич", 5, 2000f);
+    public static final Employee[] empl = {
+            new Employee("Теребонькин Иван Николаевич", 1, 3000f),
+            new Employee("Лупкин Андрей Андреевич ", 2, 1500f),
+            new Employee("Пупкин Станислав Викторович", 3, 1200f),
+            new Employee("Сладенький Егор Владимирович", 4, 1800f),
+            new Employee("Ананьев Сосик Гарникович", 5, 2100f),
+            new Employee("Забейворота Павел Афанасьевич", 1, 1600f),
+            new Employee("Кривоконь Илья Васильевич", 2, 2300f),
+            new Employee("Фриман Гордон Валерьевич", 5, 2000f),
+            new Employee("Букин Геннадий Зенденович", 4, 1800f),
+            new Employee("Кондольский Пельмень Марсельевич", 5, 2000f)
+    };
 
 // Получить список всех сотрудников со всеми имеющимися по ним данными (с помощью цикла foreach)
+    public static void printEmployees() {
+        for (Employee printEmpl : empl) {
+            System.out.println(printEmpl);
+        }
+    }
+// Посчитать сумму затрат на зарплаты в месяц.
+    public static void calculateSalaryCosts() {
+        float sum = 0;
+        for (Employee salaryCosts: empl) {
+            sum += salaryCosts.getSalary();
+        }
+        System.out.println("Сумма трат на зарплату в месяц - " + sum);
+    }
 
-            for (Employee e : empl) {
-                System.out.println(e);
+    public static void minSalaryEmployer() {
+        Employee result = empl[0];                    //Объявляю переменную result и присваиваю ей значение первой ячейки массива
+        float minSalary = 10000;                      //Объявляю переменную minSalary и присваиваю ей максимально возможное значение (потолок)
+        for (Employee employee : empl) {              // Для каждой ячейки массива
+            if (employee.getSalary() < minSalary) {   // Если значение элемента salary меньше 10000
+                minSalary = employee.getSalary();     // То присвоить переменной minSalary значение salary из 0 ячейки массива (потом из 1, 2... и т.д.)
+                result = employee;                    // переменной result присваиваю значение ячейки из цикла
             }
 
-// Посчитать сумму затрат на зарплаты в месяц.
-        // Статический метод чтобы посчитать сумму затрат на зарплаты в месяц.
-
-            float sum = 0;
-        for (Employee e : empl) {
-            sum += empl.getSalary();
         }
 
+
+        System.out.println("result = " + result);
     }
 
 }
