@@ -24,15 +24,15 @@ public class Coursework {
         }
     }
 // Посчитать сумму затрат на зарплаты в месяц.
-    public static void calculateSalaryCosts() {
+    public static float calculateSalaryCosts() {
         float sum = 0;
         for (Employee salaryCosts: empl) {
             sum += salaryCosts.getSalary();
         }
-        System.out.println("Сумма трат на зарплату в месяц - " + sum);
+        return sum;
     }
 // Поиск сотрудника с минимальной зарплатой
-    public static void findMinSalaryEmployer() {
+    public static Employee findMinSalaryEmployer() {
         Employee result = empl[0];                    //Объявляю переменную result и присваиваю ей значение первой ячейки массива
         float minSalary = 10000;                      //Объявляю переменную minSalary и присваиваю ей максимально возможное значение (потолок)
         for (Employee employee : empl) {              // Для каждой ячейки массива
@@ -40,14 +40,11 @@ public class Coursework {
                 minSalary = employee.getSalary();     // То присвоить переменной minSalary значение salary из 0 ячейки массива (потом из 1, 2... и т.д.)
                 result = employee;                    // переменной result присваиваю значение ячейки из цикла
             }
-
         }
-
-
-        System.out.println("Сотрудник с минимальной зарплатой - " + result);
+            return result;
     }
     // Поиск сотрудника с максимальной зарплатой
-    public static void findMaxSalaryEmployer() {
+    public static Employee findMaxSalaryEmployer() {
         Employee result = empl[0];
         float maxSalary = empl[0].getSalary();
         for (Employee employee : empl) {
@@ -57,14 +54,19 @@ public class Coursework {
             }
 
         }
-
-
-        System.out.println("Сотрудник с максимальной зарплатой - " + result);
+        return result;
     }
 // Подсчет среднего значения зарплат.
 
-    public static void findAverageValue(float sum) {
-
+    public static float findAverageValue() {
+        float averageValue = calculateSalaryCosts() / (float) empl.length;
+        return averageValue;
     }
+// Получаем ФИО всех сотрудников.
 
+    public static void printAllNames() {
+        for (Employee employee : empl) {
+            System.out.println(employee.getFullName());
+        }
+    }
 }
