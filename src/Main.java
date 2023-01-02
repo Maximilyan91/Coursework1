@@ -2,6 +2,8 @@ public class Main {
     public static void main(String[] args) {
         Coursework.printEmployees();
         Coursework.calculateSalaryCosts();
-        Coursework.minSalaryEmployer();
+        Coursework.findMinSalaryEmployer();
+        Coursework.findMaxSalaryEmployer();
+
     }
 }

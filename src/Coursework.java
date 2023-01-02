@@ -31,8 +31,8 @@ public class Coursework {
         }
         System.out.println("Сумма трат на зарплату в месяц - " + sum);
     }
-
-    public static void minSalaryEmployer() {
+// Поиск сотрудника с минимальной зарплатой
+    public static void findMinSalaryEmployer() {
         Employee result = empl[0];                    //Объявляю переменную result и присваиваю ей значение первой ячейки массива
         float minSalary = 10000;                      //Объявляю переменную minSalary и присваиваю ей максимально возможное значение (потолок)
         for (Employee employee : empl) {              // Для каждой ячейки массива
@@ -44,7 +44,27 @@ public class Coursework {
         }
 
 
-        System.out.println("result = " + result);
+        System.out.println("Сотрудник с минимальной зарплатой - " + result);
+    }
+    // Поиск сотрудника с максимальной зарплатой
+    public static void findMaxSalaryEmployer() {
+        Employee result = empl[0];
+        float maxSalary = empl[0].getSalary();
+        for (Employee employee : empl) {
+            if (employee.getSalary() > maxSalary) {
+                maxSalary = employee.getSalary();
+                result = employee;
+            }
+
+        }
+
+
+        System.out.println("Сотрудник с максимальной зарплатой - " + result);
+    }
+// Подсчет среднего значения зарплат.
+
+    public static void findAverageValue(float sum) {
+
     }
 
 }
