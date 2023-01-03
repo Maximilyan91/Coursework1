@@ -14,8 +14,15 @@ public class Employee {
     public int getDepartment() {
         return department;
     }
+
+    public int getId() {
+        return id;
+    }
+
     public float getSalary() {
         return salary;
+
+
     }
 // Создание сеттеров (возможность устанавливать значения полей отдела и зарплаты)
 
