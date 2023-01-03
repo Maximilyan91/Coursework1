@@ -21,6 +21,14 @@ public class Main {
         System.out.println("Сумма зарплат по отделу - " + Coursework.calculateSalaryCostsInDepartment(2));
         System.out.println();
         System.out.println("Средняя зарплата по отделу - " + Coursework.findAverageValueInDepartment(1));
+        System.out.println();
+        System.out.println("Проиндексированная зарплата всех сотрудников отдела: " + Coursework.findIndexingSalaryOfDepartment(1, 10));
+        System.out.println();
+        Coursework.printEmployeesOfDepartment(1);
+        System.out.println();
+        Coursework.findEmployeesWithASalaryLess(2000);
+        System.out.println();
+        Coursework.findEmployeesWithASalaryGreater(2000);
     }
 
 }

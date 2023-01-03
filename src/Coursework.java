@@ -137,6 +137,46 @@ public class Coursework {
         }
         return sum / (float)numberOfEmpl;
     }
-// Проиндексировать зарплату всех сотрудников отдела на процент, который приходит в качестве параметра.
+
+    // Проиндексировать зарплату всех сотрудников отдела на процент, который приходит в качестве параметра.
+    public static float findIndexingSalaryOfDepartment(int department, float percent) {
+        float totalSalary = 0f;
+        float indexingTotalSalary = 0f;
+        for (Employee employee : empl) {
+            if (employee.getDepartment() == department) {
+                totalSalary += employee.getSalary();
+            }
+            indexingTotalSalary = totalSalary * ((percent / 100) + 1);
+        }
+        return indexingTotalSalary;
+    }
+   // Напечатать всех сотрудников отдела (все данные, кроме отдела).
+
+    public static void printEmployeesOfDepartment(int department) {
+        for (Employee employee : empl) {
+            if (employee.getDepartment() == department) {
+                System.out.println(employee.getFullName() + " " + employee.getSalary());
+            }
+
+        }
+    }
+// Получить в качестве параметра число и найти: Всех сотрудников с зарплатой меньше числа (вывести id, Ф. И. О. и зарплатой в консоль).
+    public static void findEmployeesWithASalaryLess(int number) {
+        for (Employee employee : empl) {
+            if (employee.getSalary() < (float) number) {
+                System.out.println(employee.getId() + " " + employee.getFullName() + " " + employee.getSalary());
+
+            }
+        }
+    }
+//Всех сотрудников с зарплатой больше (или равно) числа (вывести id, Ф. И. О. и зарплатой в консоль).
+    public static void findEmployeesWithASalaryGreater(int number) {
+        for (Employee employee : empl) {
+            if (employee.getSalary() >= (float) number) {
+                System.out.println(employee.getId() + " " + employee.getFullName() + " " + employee.getSalary());
+
+            }
+        }
+    }
 }
 
