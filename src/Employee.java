@@ -22,7 +22,6 @@ public class Employee {
     public float getSalary() {
         return salary;
 
-
     }
 // Создание сеттеров (возможность устанавливать значения полей отдела и зарплаты)
 

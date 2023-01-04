@@ -2,7 +2,6 @@ import static java.lang.Integer.MAX_VALUE;
 
 class EmployeeBook {
 
-
     private final Employee[] empl = {
             new Employee("Теребонькин Иван Николаевич", 1, 3000f),
             new Employee("Лупкин Андрей Андреевич", 2, 1500f),
@@ -73,7 +72,6 @@ class EmployeeBook {
         }
     }
 
-
     public Employee findMinSalaryEmployerDepartment(int department) {
         float minSalary = MAX_VALUE;
         Employee result = empl[0];
@@ -89,7 +87,6 @@ class EmployeeBook {
         return result;
     }
 
-
     public Employee findMaxSalaryEmployerDepartment(int department) {
         float maxSalary = 1.0f;
         Employee result = empl[0];
@@ -104,7 +101,6 @@ class EmployeeBook {
         }
         return result;
     }
-
 
     public float calculateSalaryCostsInDepartment(int department) {
         float sum = 0;
@@ -160,7 +156,6 @@ class EmployeeBook {
         for (Employee employee : empl) {
             if (employee.getSalary() >= (float) number) {
                 System.out.println(employee.getId() + " " + employee.getFullName() + " " + employee.getSalary());
-
             }
         }
     }
@@ -182,7 +177,6 @@ class EmployeeBook {
             if (empl[i] == null) {
                 return i;
             }
-
         }
         return 1;
     }
@@ -194,7 +188,6 @@ class EmployeeBook {
                 empl[i] = null;
             }
         }
-
     }
 
     // Удалить сотрудника по id
@@ -219,8 +212,8 @@ class EmployeeBook {
     // Изменить отдел.
     public void changeDepartment(String fullName, int department) {
         for (int i = 0; i < empl.length; i++) {
-           if (empl[i].getFullName().equals(fullName)) {
-               empl[i].setDepartment(department);
+            if (empl[i].getFullName().equals(fullName)) {
+                empl[i].setDepartment(department);
             }
         }
     }
@@ -229,7 +222,6 @@ class EmployeeBook {
     public void printEmployeesFIOByDepartment() {
         for (Employee employee : empl) {
             System.out.println(employee.getFullName() + " Отдел №" + employee.getDepartment());
-            
         }
     }
 }

@@ -47,5 +47,4 @@ public class Main {
         employeeBook.printEmployees();
         employeeBook.printEmployeesFIOByDepartment();
     }
-
 }
