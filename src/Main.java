@@ -34,14 +34,18 @@ public class Main {
         EmployeeBook employeeBook = new EmployeeBook();
         employeeBook.printEmployees();
         System.out.println();
-        employeeBook.deleteEmployee("Теребонькин Иван Николаевич");
-        System.out.println();
+        employeeBook.deleteEmployeeByFIO("Теребонькин Иван Николаевич");
         employeeBook.printEmployees();
         System.out.println();
         employeeBook.createNewEmployee("Пиволюб Харитон Кириллович", 1, 1900f);
-        System.out.println();
         employeeBook.printEmployees();
-
+        System.out.println();
+        employeeBook.changeSalary("Лупкин Андрей Андреевич", 100);
+        employeeBook.printEmployees();
+        System.out.println();
+        employeeBook.changeDepartment("Лупкин Андрей Андреевич", 5);
+        employeeBook.printEmployees();
+        employeeBook.printEmployeesFIOByDepartment();
     }
 
 }

@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 import static java.lang.Integer.MAX_VALUE;
 
 class EmployeeBook {
@@ -7,7 +5,7 @@ class EmployeeBook {
 
     private final Employee[] empl = {
             new Employee("Теребонькин Иван Николаевич", 1, 3000f),
-            new Employee("Лупкин Андрей Андреевич ", 2, 1500f),
+            new Employee("Лупкин Андрей Андреевич", 2, 1500f),
             new Employee("Пупкин Станислав Викторович", 3, 1200f),
             new Employee("Сладенький Егор Владимирович", 4, 1800f),
             new Employee("Ананьев Сосик Гарникович", 5, 2100f),
@@ -127,7 +125,7 @@ class EmployeeBook {
                 numberOfEmpl++;
             }
         }
-        return sum / (float)numberOfEmpl;
+        return sum / (float) numberOfEmpl;
     }
 
     public float findIndexingSalaryOfDepartment(int department, float percent) {
@@ -184,17 +182,54 @@ class EmployeeBook {
             if (empl[i] == null) {
                 return i;
             }
-            
+
         }
         return 1;
     }
 
-    public void deleteEmployee(String fullName) {
+    // Удалить сотрудника по ФИО
+    public void deleteEmployeeByFIO(String fullName) {
         for (int i = 0; i < empl.length; i++) {
             if (empl[i].getFullName().equals(fullName)) {
                 empl[i] = null;
             }
         }
 
+    }
+
+    // Удалить сотрудника по id
+    public void deleteEmployeeById(int id) {
+        for (int i = 0; i < empl.length; i++) {
+            if (empl[i].getId() == id) {
+                empl[i] = null;
+            }
+        }
+    }
+// Изменить сотрудника (получить сотрудника по Ф. И. О., модернизировать его запись):
+// Изменить зарплату.
+
+    public void changeSalary(String fullName, int salary) {
+        for (int i = 0; i < empl.length; i++) {
+            if (empl[i].getFullName().equals(fullName)) {
+                empl[i].setSalary((float) salary);
+            }
+        }
+    }
+
+    // Изменить отдел.
+    public void changeDepartment(String fullName, int department) {
+        for (int i = 0; i < empl.length; i++) {
+           if (empl[i].getFullName().equals(fullName)) {
+               empl[i].setDepartment(department);
+            }
+        }
+    }
+
+    //Получить Ф. И. О. всех сотрудников по отделам (напечатать список отделов и их сотрудников).
+    public void printEmployeesFIOByDepartment() {
+        for (Employee employee : empl) {
+            System.out.println(employee.getFullName() + " Отдел №" + employee.getDepartment());
+            
+        }
     }
 }
