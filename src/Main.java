@@ -1,3 +1,5 @@
+
+
 public class Main {
     public static void main(String[] args) {
      //   Coursework.printEmployees();
@@ -29,9 +31,8 @@ public class Main {
      //   System.out.println();
      //   Coursework.findEmployeesWithASalaryGreater(2000);
 
-
-
-
+        EmployeeBook employeeBook = new EmployeeBook();
+        employeeBook.printEmployees();
     }
 
 }
