@@ -33,6 +33,15 @@ public class Main {
 
         EmployeeBook employeeBook = new EmployeeBook();
         employeeBook.printEmployees();
+        System.out.println();
+        employeeBook.deleteEmployee("Теребонькин Иван Николаевич");
+        System.out.println();
+        employeeBook.printEmployees();
+        System.out.println();
+        employeeBook.createNewEmployee("Пиволюб Харитон Кириллович", 1, 1900f);
+        System.out.println();
+        employeeBook.printEmployees();
+
     }
 
 }

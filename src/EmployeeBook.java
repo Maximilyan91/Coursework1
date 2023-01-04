@@ -1,6 +1,9 @@
+import java.util.Objects;
+
 import static java.lang.Integer.MAX_VALUE;
 
 class EmployeeBook {
+
 
     private final Employee[] empl = {
             new Employee("Теребонькин Иван Николаевич", 1, 3000f),
@@ -14,6 +17,7 @@ class EmployeeBook {
             new Employee("Букин Геннадий Зенденович", 4, 1300f),
             new Employee("Кондольский Пельмень Марсельевич", 5, 2000f)
     };
+
     public void printEmployees() {
         for (Employee printEmpl : empl) {
             System.out.println(printEmpl);
@@ -162,12 +166,13 @@ class EmployeeBook {
             }
         }
     }
+
 //Добавить нового сотрудника (создаем объект, заполняем поля, кладем в массив).
 //Нужно найти свободную ячейку в массиве и добавить нового сотрудника в нее. Искать нужно всегда с начала, так как возможно добавление в ячейку удаленных ранее сотрудников.
 
     public void createNewEmployee(String fullName, int department, float salary) {
         int index = searchFreeIndex();
-        if (index == 0) {
+        if (index == 1) {
             System.out.println("Нет свободных мест");
             return;
         }
@@ -181,6 +186,15 @@ class EmployeeBook {
             }
             
         }
-        return 0;
+        return 1;
+    }
+
+    public void deleteEmployee(String fullName) {
+        for (int i = 0; i < empl.length; i++) {
+            if (empl[i].getFullName().equals(fullName)) {
+                empl[i] = null;
+            }
+        }
+
     }
 }
