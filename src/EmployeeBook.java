@@ -199,7 +199,7 @@ class EmployeeBook {
     // Удалить сотрудника по ФИО
     public void deleteEmployeeByFIO(String fullName) {
         for (int i = 0; i < empl.length; i++) {
-            if (empl[i].getFullName().equals(fullName)) {
+            if (empl[i] != null && empl[i].getFullName().equals(fullName)) {
                 empl[i] = null;
             }
         }
@@ -208,7 +208,7 @@ class EmployeeBook {
     // Удалить сотрудника по id
     public void deleteEmployeeById(int id) {
         for (int i = 0; i < empl.length; i++) {
-            if (empl[i].getId() == id) {
+            if (empl[i] != null && empl[i].getId() == id) {
                 empl[i] = null;
             }
         }
@@ -218,7 +218,7 @@ class EmployeeBook {
 
     public void changeSalary(String fullName, int salary) {
         for (int i = 0; i < empl.length; i++) {
-            if (empl[i].getFullName().equals(fullName)) {
+            if (empl[i] != null && empl[i].getFullName().equals(fullName)) {
                 empl[i].setSalary((float) salary);
             }
         }
@@ -227,7 +227,7 @@ class EmployeeBook {
     // Изменить отдел.
     public void changeDepartment(String fullName, int department) {
         for (int i = 0; i < empl.length; i++) {
-            if (empl[i].getFullName().equals(fullName)) {
+            if (empl[i] != null && empl[i].getFullName().equals(fullName)) {
                 empl[i].setDepartment(department);
             }
         }
@@ -236,10 +236,11 @@ class EmployeeBook {
     //Получить Ф. И. О. всех сотрудников по отделам (напечатать список отделов и их сотрудников).
     public void printEmployeesFIOByDepartment() {
         for (Employee employee : empl) {
-            System.out.println(employee.getFullName() + " Отдел №" + employee.getDepartment());
+            if (employee != null) {
+                System.out.println(employee.getFullName() + " Отдел №" + employee.getDepartment());
+            }
         }
     }
-
 
 
 }

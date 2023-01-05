@@ -41,7 +41,7 @@ public class Main {
         employeeBook.createNewEmployee("Забейворота Павел Афанасьевич", 1, 2000f);
         employeeBook.createNewEmployee("Кривоконь Илья Васильевич", 2, 2300f);
         employeeBook.createNewEmployee("Фриман Гордон Валерьевич", 5, 2000f);
-        employeeBook.createNewEmployee("Букин Геннадий Зенденович", 4, 4000f);
+    //    employeeBook.createNewEmployee("Букин Геннадий Зенденович", 4, 4000f);
         employeeBook.createNewEmployee("Кондольский Пельмень Марсельевич", 5, 2000f);
 
 
@@ -60,12 +60,9 @@ public class Main {
         System.out.println("Мах ЗП в отделе + " + employeeBook.findMaxSalaryEmployerDepartment(1));
         System.out.println();
         employeeBook.findEmployeesWithASalaryGreater(2000);
-        //    employeeBook.changeSalary("Лупкин Андрей Андреевич", 100);
-     //   employeeBook.printEmployees();
-     //   System.out.println();
-     //   employeeBook.changeDepartment("Лупкин Андрей Андреевич", 5);
-     //   employeeBook.printEmployees();
-     //   employeeBook.printEmployeesFIOByDepartment();
+        employeeBook.changeDepartment("Лупкин Андрей Андреевич", 100);
+        employeeBook.printEmployees();
+
 
     }
 }
