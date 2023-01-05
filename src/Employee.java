@@ -7,7 +7,11 @@ public class Employee {
     private int id;
     private static int idCount;
 
-// Создание геттеров (возможность получать значения полей из Employee)
+    public Employee(Employee employee) {
+
+    }
+
+    // Создание геттеров (возможность получать значения полей из Employee)
     public String getFullName() {
         return fullName;
     }

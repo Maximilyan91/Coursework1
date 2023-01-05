@@ -56,8 +56,8 @@ class EmployeeBook {
 
     public float findAverageValue() {
         int numberOfEmployee = 0;
-        for (int i = 0; i < empl.length; i++) {
-            if (empl[i] != null) {
+        for (Employee employee : empl) {
+            if (employee != null) {
                 numberOfEmployee++;
             }
         }
@@ -178,13 +178,13 @@ class EmployeeBook {
 //Добавить нового сотрудника (создаем объект, заполняем поля, кладем в массив).
 //Нужно найти свободную ячейку в массиве и добавить нового сотрудника в нее. Искать нужно всегда с начала, так как возможно добавление в ячейку удаленных ранее сотрудников.
 
-    public void createNewEmployee(String fullName, int department, float salary) {
+    public void createNewEmployee(Employee employee) {
         int index = searchFreeIndex();
         if (index == -1) {
             System.out.println("Нет свободных мест");
             return;
         }
-        empl[index] = new Employee(fullName, department, salary);
+        empl[index] = new Employee(employee);
     }
 
     private int searchFreeIndex() {
@@ -217,18 +217,18 @@ class EmployeeBook {
 // Изменить зарплату.
 
     public void changeSalary(String fullName, int salary) {
-        for (int i = 0; i < empl.length; i++) {
-            if (empl[i] != null && empl[i].getFullName().equals(fullName)) {
-                empl[i].setSalary((float) salary);
+        for (Employee employee : empl) {
+            if (employee != null && employee.getFullName().equals(fullName)) {
+                employee.setSalary((float) salary);
             }
         }
     }
 
     // Изменить отдел.
     public void changeDepartment(String fullName, int department) {
-        for (int i = 0; i < empl.length; i++) {
-            if (empl[i] != null && empl[i].getFullName().equals(fullName)) {
-                empl[i].setDepartment(department);
+        for (Employee employee : empl) {
+            if (employee != null && employee.getFullName().equals(fullName)) {
+                employee.setDepartment(department);
             }
         }
     }

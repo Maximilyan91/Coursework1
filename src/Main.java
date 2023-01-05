@@ -32,17 +32,16 @@ public class Main {
      //   Coursework.findEmployeesWithASalaryGreater(2000);
 
         EmployeeBook employeeBook = new EmployeeBook();
-
-        employeeBook.createNewEmployee("Теребонькин Иван Николаевич", 1, 3000f);
-        employeeBook.createNewEmployee("Лупкин Андрей Андреевич", 2, 1500f);
-        employeeBook.createNewEmployee("Пупкин Станислав Викторович", 3, 1200f);
-        employeeBook.createNewEmployee("Сладенький Егор Владимирович", 4, 1800f);
-        employeeBook.createNewEmployee("Ананьев Сосик Гарникович", 5, 2100f);
-        employeeBook.createNewEmployee("Забейворота Павел Афанасьевич", 1, 2000f);
-        employeeBook.createNewEmployee("Кривоконь Илья Васильевич", 2, 2300f);
-        employeeBook.createNewEmployee("Фриман Гордон Валерьевич", 5, 2000f);
-    //    employeeBook.createNewEmployee("Букин Геннадий Зенденович", 4, 4000f);
-        employeeBook.createNewEmployee("Кондольский Пельмень Марсельевич", 5, 2000f);
+        employeeBook.createNewEmployee(new Employee("Теребонькин Иван Николаевич", 1, 3000f));
+        employeeBook.createNewEmployee(new Employee("Лупкин Андрей Андреевич", 2, 1500f));
+        employeeBook.createNewEmployee(new Employee("Пупкин Станислав Викторович", 3, 1200f));
+        employeeBook.createNewEmployee(new Employee("Сладенький Егор Владимирович", 4, 1800f));
+        employeeBook.createNewEmployee(new Employee("Ананьев Сосик Гарникович", 5, 2100f));
+        employeeBook.createNewEmployee(new Employee("Забейворота Павел Афанасьевич", 1, 2000f));
+        employeeBook.createNewEmployee(new Employee("Кривоконь Илья Васильевич", 2, 2300f));
+        employeeBook.createNewEmployee(new Employee("Фриман Гордон Валерьевич", 5, 2000f));
+        employeeBook.createNewEmployee(new Employee("Букин Геннадий Зенденович", 4, 4000f));
+        employeeBook.createNewEmployee(new Employee("Кондольский Пельмень Марсельевич", 5, 2000f));
 
 
 
