@@ -1,4 +1,5 @@
 import static java.lang.Integer.MAX_VALUE;
+import static java.lang.Integer.MIN_VALUE;
 
 class EmployeeBook {
 
@@ -18,15 +19,19 @@ class EmployeeBook {
     public float calculateSalaryCosts() {
         float sum = 0;
         for (Employee salaryCosts : empl) {
-            sum += salaryCosts.getSalary();
+            if (salaryCosts != null) {
+                sum += salaryCosts.getSalary();
+            }
         }
         return sum;
     }
 
     public Employee findMinSalaryEmployer() {
         Employee result = empl[0];
-        float minSalary = 10000;
+        float minSalary = Float.MAX_VALUE;
         for (Employee employee : empl) {
+            if (employee == null)
+                continue;
             if (employee.getSalary() < minSalary) {
                 minSalary = employee.getSalary();
                 result = employee;
@@ -39,6 +44,8 @@ class EmployeeBook {
         Employee result = empl[0];
         float maxSalary = empl[0].getSalary();
         for (Employee employee : empl) {
+            if (employee == null)
+                continue;
             if (employee.getSalary() > maxSalary) {
                 maxSalary = employee.getSalary();
                 result = employee;
@@ -48,21 +55,31 @@ class EmployeeBook {
     }
 
     public float findAverageValue() {
-        return calculateSalaryCosts() / (float) empl.length;
+        int numberOfEmployee = 0;
+        for (int i = 0; i < empl.length; i++) {
+            if (empl[i] != null) {
+                numberOfEmployee++;
+            }
+        }
+        return calculateSalaryCosts() / numberOfEmployee;
     }
 
     public void printAllNames() {
         for (Employee employee : empl) {
-            System.out.println(employee.getFullName());
+            if (employee != null) {
+                System.out.println(employee.getFullName());
+            }
         }
     }
 
-    public void findIndexSalary(float index) {
+    public void calculateIndexingSalary(float index) {
         float correctSalary;
         for (Employee employee : empl) {
-            float salary = employee.getSalary();
-            correctSalary = (((index / 100) + 1) * salary);
-            System.out.println("Проиндексированная зарплата сотрудника - " + employee.getFullName() + " составляет " + correctSalary);
+            if (employee != null) {
+                float salary = employee.getSalary();
+                correctSalary = (((index / 100) + 1) * salary);
+                System.out.println("Проиндексированная зарплата сотрудника - " + employee.getFullName() + " составляет " + correctSalary);
+            }
         }
     }
 
@@ -70,7 +87,10 @@ class EmployeeBook {
         float minSalary = MAX_VALUE;
         Employee result = empl[0];
         for (Employee employee : empl) {
-            if (employee.getDepartment() != department) {
+            if (employee == null) {
+                continue;
+            }
+            if ( employee.getDepartment() != department) {
                 continue;
             }
             if (employee.getSalary() < minSalary) {
@@ -82,15 +102,14 @@ class EmployeeBook {
     }
 
     public Employee findMaxSalaryEmployerDepartment(int department) {
-        float maxSalary = 1.0f;
+        float maxSalary = MIN_VALUE;
         Employee result = empl[0];
         for (Employee employee : empl) {
-            if (employee.getDepartment() != department) {
-                continue;
-            }
-            if (employee.getSalary() > maxSalary) {
-                maxSalary = employee.getSalary();
-                result = employee;
+            if (employee != null && employee.getDepartment() == department) {
+                if (employee.getSalary() > maxSalary) {
+                    maxSalary = employee.getSalary();
+                    result = employee;
+                }
             }
         }
         return result;
@@ -99,7 +118,7 @@ class EmployeeBook {
     public float calculateSalaryCostsInDepartment(int department) {
         float sum = 0;
         for (Employee employee : empl) {
-            if (employee.getDepartment() == department) {
+            if (employee != null && employee.getDepartment() == department) {
                 sum += employee.getSalary();
             }
         }
@@ -108,31 +127,33 @@ class EmployeeBook {
 
     public float findAverageValueInDepartment(int department) {
         int numberOfEmpl = 0;
-        int sum = 0;
+        float sum = 0;
         for (Employee employee : empl) {
-            if (employee.getDepartment() == department) {
+            if (employee != null && employee.getDepartment() == department) {
                 sum += employee.getSalary();
                 numberOfEmpl++;
             }
         }
-        return sum / (float) numberOfEmpl;
+        if (sum != 0 || numberOfEmpl != 0){
+            sum = sum / (float) numberOfEmpl;
+        }
+        return sum;
     }
 
-    public float findIndexingSalaryOfDepartment(int department, float percent) {
-        float totalSalary = 0f;
-        float indexingTotalSalary = 0f;
+    public void calculateIndexingSalaryOfDepartment(float index, int department) {
+        float correctSalary;
         for (Employee employee : empl) {
-            if (employee.getDepartment() == department) {
-                totalSalary += employee.getSalary();
+            if (employee != null && employee.getDepartment() == department) {
+                float salary = employee.getSalary();
+                correctSalary = (((index / 100) + 1) * salary);
+                System.out.println("Проиндексированная зарплата сотрудника - " + employee.getFullName() + " составляет " + correctSalary);
             }
-            indexingTotalSalary = totalSalary * ((percent / 100) + 1);
         }
-        return indexingTotalSalary;
     }
 
     public void printEmployeesOfDepartment(int department) {
         for (Employee employee : empl) {
-            if (employee.getDepartment() == department) {
+            if (employee != null && employee.getDepartment() == department) {
                 System.out.println(employee.getFullName() + " " + employee.getSalary());
             }
         }
@@ -140,7 +161,7 @@ class EmployeeBook {
 
     public void findEmployeesWithASalaryLess(int number) {
         for (Employee employee : empl) {
-            if (employee.getSalary() < (float) number) {
+            if (employee != null && employee.getSalary() < (float) number) {
                 System.out.println(employee.getId() + " " + employee.getFullName() + " " + employee.getSalary());
             }
         }
@@ -148,7 +169,7 @@ class EmployeeBook {
 
     public void findEmployeesWithASalaryGreater(int number) {
         for (Employee employee : empl) {
-            if (employee.getSalary() >= (float) number) {
+            if (employee != null && employee.getSalary() >= (float) number) {
                 System.out.println(employee.getId() + " " + employee.getFullName() + " " + employee.getSalary());
             }
         }
@@ -218,4 +239,7 @@ class EmployeeBook {
             System.out.println(employee.getFullName() + " Отдел №" + employee.getDepartment());
         }
     }
+
+
+
 }
