@@ -1,11 +1,11 @@
 public class Employee {
 
 //Создание полей
-    String fullName;
-    int department;
-    float salary;
-    int id;
-     static int idCount;
+   private String fullName;
+    private int department;
+    private float salary;
+    private int id;
+    private static int idCount;
 
 // Создание геттеров (возможность получать значения полей из Employee)
     public String getFullName() {

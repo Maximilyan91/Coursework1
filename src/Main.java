@@ -32,19 +32,35 @@ public class Main {
      //   Coursework.findEmployeesWithASalaryGreater(2000);
 
         EmployeeBook employeeBook = new EmployeeBook();
+
+        employeeBook.createNewEmployee("Теребонькин Иван Николаевич", 1, 3000f);
+        employeeBook.createNewEmployee("Лупкин Андрей Андреевич", 2, 1500f);
+        employeeBook.createNewEmployee("Пупкин Станислав Викторович", 3, 1200f);
+     //   employeeBook.createNewEmployee("Сладенький Егор Владимирович", 4, 1800f);
+     //   employeeBook.createNewEmployee("Ананьев Сосик Гарникович", 5, 2100f);
+        employeeBook.createNewEmployee("Забейворота Павел Афанасьевич", 1, 2000f);
+        employeeBook.createNewEmployee("Кривоконь Илья Васильевич", 2, 2300f);
+        employeeBook.createNewEmployee("Фриман Гордон Валерьевич", 5, 2000f);
+        employeeBook.createNewEmployee("Букин Геннадий Зенденович", 4, 1300f);
+        employeeBook.createNewEmployee("Кондольский Пельмень Марсельевич", 5, 2000f);
+
+
+
         employeeBook.printEmployees();
-        System.out.println();
-        employeeBook.deleteEmployeeByFIO("Теребонькин Иван Николаевич");
-        employeeBook.printEmployees();
-        System.out.println();
-        employeeBook.createNewEmployee("Пиволюб Харитон Кириллович", 1, 1900f);
-        employeeBook.printEmployees();
-        System.out.println();
-        employeeBook.changeSalary("Лупкин Андрей Андреевич", 100);
-        employeeBook.printEmployees();
-        System.out.println();
-        employeeBook.changeDepartment("Лупкин Андрей Андреевич", 5);
-        employeeBook.printEmployees();
-        employeeBook.printEmployeesFIOByDepartment();
+     //   System.out.println();
+     //   employeeBook.deleteEmployeeByFIO("Теребонькин Иван Николаевич");
+     //   employeeBook.printEmployees();
+     //   System.out.println();
+     //   employeeBook.createNewEmployee("Пиволюб Харитон Кириллович", 1, 1900f);
+     //   employeeBook.printEmployees();
+     //   System.out.println();
+     //   employeeBook.changeSalary("Лупкин Андрей Андреевич", 100);
+     //   employeeBook.printEmployees();
+     //   System.out.println();
+     //   employeeBook.changeDepartment("Лупкин Андрей Андреевич", 5);
+     //   employeeBook.printEmployees();
+     //   employeeBook.printEmployeesFIOByDepartment();
+
+
     }
 }

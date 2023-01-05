@@ -2,22 +2,16 @@ import static java.lang.Integer.MAX_VALUE;
 
 class EmployeeBook {
 
-    private final Employee[] empl = {
-            new Employee("Теребонькин Иван Николаевич", 1, 3000f),
-            new Employee("Лупкин Андрей Андреевич", 2, 1500f),
-            new Employee("Пупкин Станислав Викторович", 3, 1200f),
-            new Employee("Сладенький Егор Владимирович", 4, 1800f),
-            new Employee("Ананьев Сосик Гарникович", 5, 2100f),
-            new Employee("Забейворота Павел Афанасьевич", 1, 2000f),
-            new Employee("Кривоконь Илья Васильевич", 2, 2300f),
-            new Employee("Фриман Гордон Валерьевич", 5, 2000f),
-            new Employee("Букин Геннадий Зенденович", 4, 1300f),
-            new Employee("Кондольский Пельмень Марсельевич", 5, 2000f)
-    };
+    private static final Integer employeeBookSize = 10;
+    private final Employee[] empl = new Employee[employeeBookSize];
 
     public void printEmployees() {
-        for (Employee printEmpl : empl) {
-            System.out.println(printEmpl);
+        for (int i = 0; i < empl.length; i++) {
+            if (empl[i] != null) {
+                System.out.println(empl[i]);
+            }else{
+                System.out.println("Ячейка №" + (i+1) + " пустая");
+            }
         }
     }
 
@@ -165,7 +159,7 @@ class EmployeeBook {
 
     public void createNewEmployee(String fullName, int department, float salary) {
         int index = searchFreeIndex();
-        if (index == 1) {
+        if (index == -1) {
             System.out.println("Нет свободных мест");
             return;
         }
@@ -178,7 +172,7 @@ class EmployeeBook {
                 return i;
             }
         }
-        return 1;
+        return -1;
     }
 
     // Удалить сотрудника по ФИО
